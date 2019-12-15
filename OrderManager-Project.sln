@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.DomainModel", "OrderManager.DomainModel\OrderManager.DomainModel.csproj", "{F29EAB2C-DD78-4947-A0A5-C6AA5CD6906F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.DataAccess.Ef", "OrderManager.DataAccess.Ef\OrderManager.DataAccess.Ef.csproj", "{2C049A97-AE69-4557-9F02-B06ACBFDB6B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.WebApi.Backoffice", "OrderManager.WebApi.Backoffice\OrderManager.WebApi.Backoffice.csproj", "{FFCF4CB0-DF68-407A-B26C-ADF0AC7523EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.Services.CommandServices.Implementation", "OrderManager.Services.CommandServices.Implementation\OrderManager.Services.CommandServices.Implementation.csproj", "{D62D4ECE-284E-44AE-BD04-F5115215E1DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.DataAccess", "OrderManager.DataAccess\OrderManager.DataAccess.csproj", "{354C87E7-7508-46CC-9049-8DB3AA3D5116}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Services.CommandServices", "OrderManager.Services.CommandServices\OrderManager.Services.CommandServices.csproj", "{5396D9D1-DD40-4161-811E-F1BFAA81CF1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Services.ReadServices", "OrderManager.Services.ReadServices\OrderManager.Services.ReadServices.csproj", "{6C8F62CF-B8BC-432D-92D0-5FF978157E42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Services.ReadServices.Implementation", "OrderManager.Services.ReadServices.Implementation\OrderManager.Services.ReadServices.Implementation.csproj", "{6C5D153C-CFB6-47AC-AFD1-59085F1AE55E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.WebApi.Client", "OrderManager.WebApi.Client\OrderManager.WebApi.Client.csproj", "{809B086C-9222-45D4-A2E9-00280DAD30D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F29EAB2C-DD78-4947-A0A5-C6AA5CD6906F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F29EAB2C-DD78-4947-A0A5-C6AA5CD6906F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F29EAB2C-DD78-4947-A0A5-C6AA5CD6906F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F29EAB2C-DD78-4947-A0A5-C6AA5CD6906F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C049A97-AE69-4557-9F02-B06ACBFDB6B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C049A97-AE69-4557-9F02-B06ACBFDB6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C049A97-AE69-4557-9F02-B06ACBFDB6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C049A97-AE69-4557-9F02-B06ACBFDB6B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFCF4CB0-DF68-407A-B26C-ADF0AC7523EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFCF4CB0-DF68-407A-B26C-ADF0AC7523EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFCF4CB0-DF68-407A-B26C-ADF0AC7523EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFCF4CB0-DF68-407A-B26C-ADF0AC7523EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D62D4ECE-284E-44AE-BD04-F5115215E1DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D62D4ECE-284E-44AE-BD04-F5115215E1DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D62D4ECE-284E-44AE-BD04-F5115215E1DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D62D4ECE-284E-44AE-BD04-F5115215E1DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{354C87E7-7508-46CC-9049-8DB3AA3D5116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{354C87E7-7508-46CC-9049-8DB3AA3D5116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{354C87E7-7508-46CC-9049-8DB3AA3D5116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{354C87E7-7508-46CC-9049-8DB3AA3D5116}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5396D9D1-DD40-4161-811E-F1BFAA81CF1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5396D9D1-DD40-4161-811E-F1BFAA81CF1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5396D9D1-DD40-4161-811E-F1BFAA81CF1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5396D9D1-DD40-4161-811E-F1BFAA81CF1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8F62CF-B8BC-432D-92D0-5FF978157E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8F62CF-B8BC-432D-92D0-5FF978157E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8F62CF-B8BC-432D-92D0-5FF978157E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8F62CF-B8BC-432D-92D0-5FF978157E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C5D153C-CFB6-47AC-AFD1-59085F1AE55E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5D153C-CFB6-47AC-AFD1-59085F1AE55E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5D153C-CFB6-47AC-AFD1-59085F1AE55E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5D153C-CFB6-47AC-AFD1-59085F1AE55E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{809B086C-9222-45D4-A2E9-00280DAD30D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{809B086C-9222-45D4-A2E9-00280DAD30D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{809B086C-9222-45D4-A2E9-00280DAD30D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{809B086C-9222-45D4-A2E9-00280DAD30D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F3BCB50-8CCB-464D-81D2-F1F1EFC25FFA}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OrderManager.DataAccess\OrderManager.DataAccess.csproj" />
+      <ProjectReference Include="..\OrderManager.Services.ReadServices\OrderManager.Services.ReadServices.csproj" />
+    </ItemGroup>
+
+</Project>

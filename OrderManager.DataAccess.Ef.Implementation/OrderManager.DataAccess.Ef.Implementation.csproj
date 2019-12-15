@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <RootNamespace>OrderManager.DataAccess.Implementation</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OrderManager.DataAccess.Ef\OrderManager.DataAccess.Ef.csproj" />
+    </ItemGroup>
+
+</Project>
