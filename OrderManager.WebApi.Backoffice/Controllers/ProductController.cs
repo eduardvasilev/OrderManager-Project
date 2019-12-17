@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using OrderManager.Services.CommandServices;
 using OrderManager.Services.CommandServices.Models.Product;
 using OrderManager.Services.ReadServices;
 using OrderManager.Services.ReadServices.Models.Product;
 
-namespace OrderManager.WebApi.Controllers
+namespace OrderManager.WebApi.Backoffice.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -32,7 +29,7 @@ namespace OrderManager.WebApi.Controllers
         }
 
         [HttpGet]
-//        [EnableQuery]
+//      [EnableQuery]
         public IEnumerable<ProductServiceModel> Get()
         {
             return _productReadService.GetAll();

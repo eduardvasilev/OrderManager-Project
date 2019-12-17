@@ -1,7 +1,5 @@
-using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +9,7 @@ using OrderManager.DataAccess.Ef;
 using OrderManager.Services.CommandServices;
 using OrderManager.Services.ReadServices;
 using OrderManager.Services.ReadServices.Implementation;
+using Serilog;
 
 namespace OrderManager.WebApi.Backoffice
 {
@@ -27,12 +26,12 @@ namespace OrderManager.WebApi.Backoffice
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-//            services.AddOData();
+            //services.AddOData();
 //            services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-              
             services.AddDbContext<EfContext>(options =>
                 options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-            
+            services.AddLogging(builder => builder.AddSerilog());
+
             services.AddTransient(typeof(IWriteRepository<>), typeof(WriteRepository<>));
             services.AddTransient(typeof(IReadRepository<>), typeof(ReadRepository<>));
             services.AddScoped<IProductCommandService, ProductCommandService>();
@@ -56,13 +55,7 @@ namespace OrderManager.WebApi.Backoffice
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-
-//            app.UseMvc(builder =>
-//            {
-//                builder.EnableDependencyInjection();
-//                builder.Expand().OrderBy().Select();
-//            });
+            }); 
         }
     }
 }
