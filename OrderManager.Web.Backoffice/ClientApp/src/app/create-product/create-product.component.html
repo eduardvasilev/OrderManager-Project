@@ -1,0 +1,36 @@
+<mat-nav-list>
+  <mat-list-item *ngFor="let product of products" (click)="onSelect(product)">
+    {{product.name}}
+  </mat-list-item>
+</mat-nav-list>
+
+<div class="product-container" *ngIf="selectedProduct">
+  <h2>{{selectedProduct.name | uppercase}}</h2>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="selectedProduct.name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput [(ngModel)]="selectedProduct.description"></textarea>
+  </mat-form-field>
+</div>
+
+
+<h2>Create Product</h2>
+<form class="product-container" [formGroup]="createProductForm" (ngSubmit)="onSubmit(createProductForm.value)">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Price</mat-label>
+    <input matInput type="number" formControlName="price">
+  </mat-form-field>
+
+  <button mat-button color="primary" type="submit">Create Product</button>
+</form>

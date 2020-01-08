@@ -20,6 +20,8 @@ namespace OrderManager.Services.ReadServices.Implementation
         {
             return _repository.GetAll().Select(product => new ProductServiceModel
             {
+                Id = product.Id,
+                Price = product.Price,
                 Name = product.Name,
                 Description = product.Description
             });

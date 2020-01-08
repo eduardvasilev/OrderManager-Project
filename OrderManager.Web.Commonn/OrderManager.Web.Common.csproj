@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderManager.DataAccess.Ef\OrderManager.DataAccess.Ef.csproj" />
+    <ProjectReference Include="..\OrderManager.DataAccess\OrderManager.DataAccess.csproj" />
+    <ProjectReference Include="..\OrderManager.Services.CommandServices.Implementation\OrderManager.Services.CommandServices.Implementation.csproj" />
+    <ProjectReference Include="..\OrderManager.Services.CommandServices\OrderManager.Services.CommandServices.csproj" />
+    <ProjectReference Include="..\OrderManager.Services.ReadServices.Implementation\OrderManager.Services.ReadServices.Implementation.csproj" />
+    <ProjectReference Include="..\OrderManager.Services.ReadServices\OrderManager.Services.ReadServices.csproj" />
+  </ItemGroup>
+
+</Project>

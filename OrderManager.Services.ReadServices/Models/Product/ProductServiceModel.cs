@@ -6,6 +6,12 @@ namespace OrderManager.Services.ReadServices.Models.Product
     [DataContract]
     public class ProductServiceModel
     {
+        [DataMember(Name = "id")]
+        public long Id { get; set; }
+
+        [DataMember(Name = "price")]
+        public decimal Price { get; set; }
+
         [DataMember(Name = "name")]
         public string Name { get; set; }      
           
