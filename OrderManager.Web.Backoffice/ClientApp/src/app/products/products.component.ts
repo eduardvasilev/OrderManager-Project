@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   products: Product[];
   selectedProduct: Product;
   createProductForm;
+  displayedColumns: string[] = ['name', 'description', 'price'];
 
   constructor(private productService: ProductService) {
     //

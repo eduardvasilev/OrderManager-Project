@@ -1,17 +1,19 @@
-<mat-nav-list>
-  <mat-list-item *ngFor="let product of products" (click)="onSelect(product)">
-    {{product.name}}
-  </mat-list-item>
-</mat-nav-list>
+<mat-table [dataSource]="products">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
 
-<div class="product-container" *ngIf="selectedProduct">
-  <h2>{{selectedProduct.name | uppercase}}</h2>
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+  </ng-container>
 
-  <mat-form-field>
-    <input matInput [(ngModel)]="selectedProduct.name">
-  </mat-form-field>
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+  </ng-container>
 
-  <mat-form-field>
-    <textarea matInput [(ngModel)]="selectedProduct.description"></textarea>
-  </mat-form-field>
-</div>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

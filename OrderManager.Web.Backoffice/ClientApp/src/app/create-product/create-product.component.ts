@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ProductService } from "../product.service";
 import { Product } from "../product";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -11,16 +12,25 @@ import { Product } from "../product";
 
 export class CreateProductComponent implements OnInit {
   products: Product[];
-  selectedProduct: Product;
+  product: Product;
   createProductForm;
 
-  constructor(private productService: ProductService,
-    private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+    private productService: ProductService,
+    private router: Router) {
 
     this.createProductForm = this.formBuilder.group({
-      name: '',
-      description: '',
-      price: ''
+      name: new FormControl(this.product, [
+        Validators.required,
+        Validators.maxLength(255)
+      ]),
+      description: new FormControl(this.product, [
+        Validators.maxLength(500)
+      ]),
+      price: new FormControl(this.product, [
+        Validators.required,
+        Validators.min(0)
+      ]),
     });
   }
 
@@ -29,9 +39,11 @@ export class CreateProductComponent implements OnInit {
   }
 
   onSubmit(productData: Product) {
-    this.productService.createProduct(productData)
-      .subscribe(product => {
-        this.products.push(product);
+    if(this.createProductForm.valid){
+      this.productService.createProduct(productData)
+      .subscribe(() => {
+        this.router.navigate(['/products']);
       });
+    }
   }
 }
