@@ -17,9 +17,11 @@ namespace OrderManager.WebApi.Controllers
         }
         
         [HttpPost("create")]
-        public async Task Create([FromBody] CreateOrderServiceModel model)
+        public async Task<JsonResult> Create([FromBody] CreateOrderServiceModel model)
         {
             await _orderCommandService.CreateAsync(model);
+
+            return new JsonResult("Order has been created.");
         }
     }
 }

@@ -8,17 +8,19 @@ using OrderManager.Services.ReadServices;
 using OrderManager.Services.ReadServices.Implementation;
 using Serilog;
 
-namespace OrderManager.Web.Commonn
+namespace OrderManager.Web.Common
 {
     public static class ServiceManager
     {
         public static void RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<EfContext>(options =>
-                options.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"]));
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             services.AddLogging(builder => builder.AddSerilog());
             services.AddTransient(typeof(IWriteRepository<>), typeof(WriteRepository<>));
             services.AddTransient(typeof(IReadRepository<>), typeof(ReadRepository<>));
+            services.AddScoped<IOrderCommandService, OrderCommandSerivce>();
+            services.AddScoped<IOrderItemCommandService, OrderItemCommandService>();
             services.AddScoped<IProductCommandService, ProductCommandService>();
             services.AddScoped<IProductReadService, ProductReadService>();
         }

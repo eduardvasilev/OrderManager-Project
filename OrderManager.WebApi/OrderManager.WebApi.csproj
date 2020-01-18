@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <RootNamespace>OrderManager.WebApi.Backoffice</RootNamespace>
+    <RootNamespace>OrderManager.WebApi</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

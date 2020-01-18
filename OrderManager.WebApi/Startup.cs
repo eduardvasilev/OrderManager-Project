@@ -1,16 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OrderManager.DataAccess;
-using OrderManager.DataAccess.Ef;
-using OrderManager.Services.CommandServices;
-using OrderManager.Services.ReadServices;
-using OrderManager.Services.ReadServices.Implementation;
-using OrderManager.Web.Commonn;
-using Serilog;
+using OrderManager.Web.Common;
 
 namespace OrderManager.WebApi
 {

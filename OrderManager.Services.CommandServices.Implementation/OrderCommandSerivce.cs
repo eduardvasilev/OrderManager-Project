@@ -27,7 +27,7 @@ namespace OrderManager.Services.CommandServices
                 AdditionalData = serviceModel.AdditionalData,
                 StatusId = (long)OrderStatus.New,
                 CreationDate = DateTime.UtcNow,
-                OrderDate = serviceModel.OrderDate
+                OrderDate = serviceModel.OrderDate ?? DateTime.UtcNow
             };
             _orderRepository.Create(order);
 

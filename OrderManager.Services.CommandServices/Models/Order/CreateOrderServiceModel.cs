@@ -17,7 +17,7 @@ namespace OrderManager.Services.CommandServices.Models.Order
         public string AdditionalData { get; set; }
         
         [DataMember(Name = "orderDate")]
-        public DateTime OrderDate { get; set; }
+        public DateTime? OrderDate { get; set; }
         
         public class OrderItemServiceModel
         {

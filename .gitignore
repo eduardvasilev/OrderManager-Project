@@ -338,4 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/OrderManager.WebApi.Backoffice/Logs.txt
+/OrderManager.Web.Backoffice/Logs.txt
+/OrderManager.WebApi/Logs.txt

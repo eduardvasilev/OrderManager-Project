@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OrderManager.Web.Commonn;
+using OrderManager.Web.Common;
 
 namespace OrderManager.Web.Backoffice
 {
