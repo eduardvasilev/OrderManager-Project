@@ -22,7 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OrderManager.Services.CommandServices\OrderManager.Services.CommandServices.csproj" />
     <ProjectReference Include="..\OrderManager.Services.ReadServices\OrderManager.Services.ReadServices.csproj" />
-    <ProjectReference Include="..\OrderManager.Web.Commonn\OrderManager.Web.Common.csproj" />
+    <ProjectReference Include="..\OrderManager.Web.Common\OrderManager.Web.Common.csproj" />
   </ItemGroup>
 
 </Project>

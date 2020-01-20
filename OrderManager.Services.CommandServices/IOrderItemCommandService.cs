@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OrderManager.DomainModel;
 using System.Threading.Tasks;
-using OrderManager.DomainModel;
 
 namespace OrderManager.Services.CommandServices
 {

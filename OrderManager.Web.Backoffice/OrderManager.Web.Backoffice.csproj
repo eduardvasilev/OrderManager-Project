@@ -36,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OrderManager.Web.Commonn\OrderManager.Web.Common.csproj" />
+    <ProjectReference Include="..\OrderManager.Web.Common\OrderManager.Web.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

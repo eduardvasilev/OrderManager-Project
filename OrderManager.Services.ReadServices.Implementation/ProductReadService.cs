@@ -1,24 +1,22 @@
-﻿using System.Linq;
-using System.Net.Http.Headers;
-using OrderManager.DataAccess;
+﻿using OrderManager.DataAccess;
 using OrderManager.DomainModel;
-using OrderManager.Services.ReadServices;
 using OrderManager.Services.ReadServices.Models.Product;
+using System.Linq;
 
 namespace OrderManager.Services.ReadServices.Implementation
 {
     public class ProductReadService : IProductReadService
     {
-        private readonly IReadRepository<Product> _repository;
+        private readonly IReadRepository<Product> _readRepository;
 
-        public ProductReadService(IReadRepository<Product> repository)
+        public ProductReadService(IReadRepository<Product> readRepository)
         {
-            _repository = repository;
+            _readRepository = readRepository;
         }
         
         public IQueryable<ProductServiceModel> GetAll()
         {
-            return _repository.GetAll().Select(product => new ProductServiceModel
+            return _readRepository.GetAll().Select(product => new ProductServiceModel
             {
                 Id = product.Id,
                 Price = product.Price,

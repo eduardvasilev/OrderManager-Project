@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.Services.ReadS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.Web.Backoffice", "OrderManager.Web.Backoffice\OrderManager.Web.Backoffice.csproj", "{8859482F-019C-4287-8083-51A4E5980C1C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.Web.Common", "OrderManager.Web.Commonn\OrderManager.Web.Common.csproj", "{CAC06A30-02EC-443D-A053-047E1C9A740C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.Web.Common", "OrderManager.Web.Common\OrderManager.Web.Common.csproj", "{CAC06A30-02EC-443D-A053-047E1C9A740C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderManager.WebApi", "OrderManager.WebApi\OrderManager.WebApi.csproj", "{0C861148-0AC8-4589-9817-AB3BAAFC737E}"
 EndProject

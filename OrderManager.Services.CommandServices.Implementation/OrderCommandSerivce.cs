@@ -8,34 +8,33 @@ namespace OrderManager.Services.CommandServices
 {
     public class OrderCommandSerivce : IOrderCommandService
     {
-        private readonly IWriteRepository<Order> _orderRepository;
+        private readonly IWriteRepository<Order> _orderWriteRepository;
         private readonly IOrderItemCommandService _orderItemCommandService;
-        private readonly IReadRepository<Product> _productRepository;
+        private readonly IReadRepository<Product> _productReadRepository;
 
-        public OrderCommandSerivce(IWriteRepository<Order> orderRepository, 
+        public OrderCommandSerivce(IWriteRepository<Order> orderWriteRepository, 
             IOrderItemCommandService orderItemCommandService,
-            IReadRepository<Product> productRepository)
+            IReadRepository<Product> productReadRepository)
         {
-            _orderRepository = orderRepository;
+            _orderWriteRepository = orderWriteRepository;
             _orderItemCommandService = orderItemCommandService;
-            _productRepository = productRepository;
+            _productReadRepository = productReadRepository;
         }
         public async Task<CreateOrderResponse> CreateAsync(CreateOrderServiceModel serviceModel)
         {
-            var order = new Order
+            Order order = new Order
             {
                 AdditionalData = serviceModel.AdditionalData,
                 StatusId = (long)OrderStatus.New,
                 CreationDate = DateTime.UtcNow,
                 OrderDate = serviceModel.OrderDate ?? DateTime.UtcNow
             };
-            _orderRepository.Create(order);
 
-            await _orderRepository.SaveChangesAsync();
-            
+            _orderWriteRepository.Create(order);
+
             foreach (var orderProduct in serviceModel.Products)
             {
-                Product product = await _productRepository.GetByIdAsync(orderProduct.ProductId);
+                Product product = await _productReadRepository.GetByIdAsync(orderProduct.ProductId);
                 if (product == null)
                 {
                     throw new Exception("Product not found.");

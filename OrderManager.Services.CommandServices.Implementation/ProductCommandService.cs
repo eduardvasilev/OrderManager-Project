@@ -8,23 +8,23 @@ namespace OrderManager.Services.CommandServices
 {
     public class ProductCommandService : IProductCommandService
     {
-        private readonly IWriteRepository<Product> _repository;
+        private readonly IWriteRepository<Product> _writeRepository;
 
-        public ProductCommandService(IWriteRepository<Product> repository)
+        public ProductCommandService(IWriteRepository<Product> writeRepository)
         {
-            _repository = repository;
+            _writeRepository = writeRepository;
         }
 
         public async Task CreateAsync(CreateProductServiceModel serviceModel)
         {
-            _repository.Create(new Product
+            _writeRepository.Create(new Product
             {
                 Name = serviceModel.Name,
                 Description = serviceModel.Description,
                 Price = serviceModel.Price
             });
 
-            await _repository.SaveChangesAsync();
+            await _writeRepository.SaveChangesAsync();
         }
     }
 }

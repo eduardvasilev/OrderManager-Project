@@ -1,6 +1,5 @@
-﻿using System.Linq;
+﻿using OrderManager.Services.CommandServices.Models.Product;
 using System.Threading.Tasks;
-using OrderManager.Services.CommandServices.Models.Product;
 
 namespace OrderManager.Services.CommandServices
 {

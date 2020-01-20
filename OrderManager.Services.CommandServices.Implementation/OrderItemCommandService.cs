@@ -6,16 +6,16 @@ namespace OrderManager.Services.CommandServices
 {
     public class OrderItemCommandService : IOrderItemCommandService
     {
-        private readonly IWriteRepository<OrderItem> _repository;
+        private readonly IWriteRepository<OrderItem> _writeRepository;
 
-        public OrderItemCommandService(IWriteRepository<OrderItem> repository)
+        public OrderItemCommandService(IWriteRepository<OrderItem> writeRepository)
         {
-            _repository = repository;
+            _writeRepository = writeRepository;
         }
         
         public async Task CreateAsync(Order order, Product product, long amount)
         {
-            _repository.Create(new OrderItem
+            _writeRepository.Create(new OrderItem
             {
                 Order = order,
                 OrderId = order.Id,
@@ -24,7 +24,7 @@ namespace OrderManager.Services.CommandServices
                 Amount = amount
             });
 
-           await _repository.SaveChangesAsync();
+           await _writeRepository.SaveChangesAsync();
         }
     }
 }
