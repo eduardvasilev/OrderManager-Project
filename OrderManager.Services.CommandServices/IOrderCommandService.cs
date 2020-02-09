@@ -5,6 +5,6 @@ namespace OrderManager.Services.CommandServices
 {
     public interface IOrderCommandService
     {
-        Task<CreateOrderResponse> CreateAsync(CreateOrderServiceModel serviceModel);
+        Task<OrderCreated> CreateAsync(CreateOrder command);
     }
 }

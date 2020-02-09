@@ -1,7 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using MassTransit;
 using Microsoft.AspNetCore.Mvc;
-using OrderManager.Services.CommandServices;
 using OrderManager.Services.CommandServices.Models.Order;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace OrderManager.WebApi.Controllers
 {
@@ -9,18 +10,19 @@ namespace OrderManager.WebApi.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly IOrderCommandService _orderCommandService;
+        private readonly IRequestClient<CreateOrder> _requestClient;
 
-        public OrderController(IOrderCommandService orderCommandService)
+        public OrderController(IRequestClient<CreateOrder> requestClient)
         {
-            _orderCommandService = orderCommandService;
+            _requestClient = requestClient;
         }
-        
-        [HttpPost("create")]
-        public async Task<JsonResult> Create([FromBody] CreateOrderServiceModel model)
-        {
-            await _orderCommandService.CreateAsync(model);
 
+        [HttpPost("create")]
+        public async Task<JsonResult> Create([FromBody] CreateOrder model, CancellationToken cancellationToken)
+        {
+            var request = _requestClient.Create(model, cancellationToken);
+
+            await request.GetResponse<OrderCreated>();
             return new JsonResult("Order has been created.");
         }
     }

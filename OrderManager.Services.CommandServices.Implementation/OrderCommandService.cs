@@ -6,13 +6,13 @@ using OrderManager.Services.CommandServices.Models.Order;
 
 namespace OrderManager.Services.CommandServices
 {
-    public class OrderCommandSerivce : IOrderCommandService
+    public class OrderCommandService : IOrderCommandService
     {
         private readonly IWriteRepository<Order> _orderWriteRepository;
         private readonly IOrderItemCommandService _orderItemCommandService;
         private readonly IReadRepository<Product> _productReadRepository;
 
-        public OrderCommandSerivce(IWriteRepository<Order> orderWriteRepository, 
+        public OrderCommandService(IWriteRepository<Order> orderWriteRepository, 
             IOrderItemCommandService orderItemCommandService,
             IReadRepository<Product> productReadRepository)
         {
@@ -20,19 +20,19 @@ namespace OrderManager.Services.CommandServices
             _orderItemCommandService = orderItemCommandService;
             _productReadRepository = productReadRepository;
         }
-        public async Task<CreateOrderResponse> CreateAsync(CreateOrderServiceModel serviceModel)
+        public async Task<OrderCreated> CreateAsync(CreateOrder command)
         {
             Order order = new Order
             {
-                AdditionalData = serviceModel.AdditionalData,
+                AdditionalData = command.AdditionalData,
                 StatusId = (long)OrderStatus.New,
                 CreationDate = DateTime.UtcNow,
-                OrderDate = serviceModel.OrderDate ?? DateTime.UtcNow
+                OrderDate = command.OrderDate ?? DateTime.UtcNow
             };
 
             _orderWriteRepository.Create(order);
 
-            foreach (var orderProduct in serviceModel.Products)
+            foreach (var orderProduct in command.Products)
             {
                 Product product = await _productReadRepository.GetByIdAsync(orderProduct.ProductId);
                 if (product == null)
@@ -43,7 +43,7 @@ namespace OrderManager.Services.CommandServices
                 await _orderItemCommandService.CreateAsync(order, product, orderProduct.Amount);
             }
 
-            return new CreateOrderResponse
+            return new OrderCreated
             {
                 OrderId = order.Id
             };

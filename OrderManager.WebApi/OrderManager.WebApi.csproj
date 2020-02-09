@@ -10,6 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit.AspNetCore" Version="6.0.2" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="6.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.2.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>

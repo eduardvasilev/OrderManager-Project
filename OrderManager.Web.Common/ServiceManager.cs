@@ -19,7 +19,7 @@ namespace OrderManager.Web.Common
             services.AddLogging(builder => builder.AddSerilog());
             services.AddTransient(typeof(IWriteRepository<>), typeof(WriteRepository<>));
             services.AddTransient(typeof(IReadRepository<>), typeof(ReadRepository<>));
-            services.AddScoped<IOrderCommandService, OrderCommandSerivce>();
+            services.AddScoped<IOrderCommandService, OrderCommandService>();
             services.AddScoped<IOrderItemCommandService, OrderItemCommandService>();
             services.AddScoped<IProductCommandService, ProductCommandService>();
             services.AddScoped<IProductReadService, ProductReadService>();

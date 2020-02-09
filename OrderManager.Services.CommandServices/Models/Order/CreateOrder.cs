@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OrderManager.Services.CommandServices.Models.Order
 {
-    public class CreateOrderServiceModel
+    public class CreateOrder
     {
         [Required]
         public OrderItemServiceModel[] Products { get; set; }

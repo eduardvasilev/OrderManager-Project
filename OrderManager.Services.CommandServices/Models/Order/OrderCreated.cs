@@ -1,6 +1,6 @@
 ﻿namespace OrderManager.Services.CommandServices.Models.Order
 {
-    public class CreateOrderResponse
+    public class OrderCreated
     {
         public long OrderId { get; set; }     
     }
