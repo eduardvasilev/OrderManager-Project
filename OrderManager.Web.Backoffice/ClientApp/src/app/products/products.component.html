@@ -1,3 +1,4 @@
+<button mat-stroked-button [routerLink]="['/create-product']">Create Product</button>
 <mat-table [dataSource]="products">
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
@@ -11,7 +12,7 @@
 
   <ng-container matColumnDef="price">
     <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.price | currency}} </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

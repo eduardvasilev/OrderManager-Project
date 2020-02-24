@@ -1,9 +1,21 @@
 <table mat-table
        [dataSource]="orders" multiTemplateDataRows
        class="mat-elevation-z8">
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+  <ng-container matColumnDef="creationDate">
+    <th mat-header-cell *matHeaderCellDef> Creation Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.creationDate| date:'short'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="statusId">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element">
+      <div [ngSwitch]="element.statusId">
+        <span *ngSwitchCase="1">Canceled</span>
+        <span *ngSwitchCase="2">Completed</span>
+        <span *ngSwitchCase="3">In Progress</span>
+        <span *ngSwitchCase="4">New</span>
+      </div>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="expandedDetail">
