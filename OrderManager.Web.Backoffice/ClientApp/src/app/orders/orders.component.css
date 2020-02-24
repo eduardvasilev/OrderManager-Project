@@ -17,12 +17,10 @@ tr.order-detail-row {
 }
 
 tr.order-element-row:not(.order-expanded-row):hover {
-  background: #777;
+  background: #00a8cc;
+  cursor: default;
 }
 
-tr.order-element-row:not(.order-expanded-row):active {
-  background: #efefef;
-}
 
 .order-element-row td {
   border-bottom-width: 0;
@@ -30,7 +28,8 @@ tr.order-element-row:not(.order-expanded-row):active {
 
 .order-element-detail {
   overflow: hidden;
-  display: flex;
+  display: inline-block;
+  width: 75%;
 }
 
 .order-element-description {

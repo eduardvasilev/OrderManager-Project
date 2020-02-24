@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService } from "../services/order.service";
 import { Order } from "../model/order";
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { OrderItem } from "../model/orderItem";
+
 @Component({
   selector: 'app-product',
   templateUrl: './orders.component.html',
@@ -17,9 +19,10 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 
 export class OrdersComponent implements OnInit {
   orders: Order[];
-  selectedOrder: Order;
+  selectedOrderItems: OrderItem[];
   expandedElement: Order | null;
   columnsToDisplay: string[] = ['creationDate', 'statusId'];
+  itemsColumnsToDisplay: string[] = ['title', 'amount'];
 
   constructor(private orderService: OrderService) {
     //
@@ -32,5 +35,15 @@ export class OrdersComponent implements OnInit {
   getOrders(): void {
     this.orderService.getProducts()
       .subscribe(orders => this.orders = orders);
+  }
+
+  getOrderItems(order: Order): void {
+    this.orderService.getItems(order.id)
+      .subscribe(items => this.selectedOrderItems = items);
+  }
+
+  onOrderClick(element: Order): void {
+    this.expandedElement = this.expandedElement === element ? null : element;
+    this.getOrderItems(element);
   }
 }

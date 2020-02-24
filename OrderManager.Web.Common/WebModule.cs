@@ -23,6 +23,7 @@ namespace OrderManager.Web.Common
             builder.RegisterType<ProductCommandService>().As<IProductCommandService>().InstancePerLifetimeScope();
             builder.RegisterType<ProductReadService>().As<IProductReadService>().InstancePerLifetimeScope();
             builder.RegisterType<OrderReadService>().As<IOrderReadService>().InstancePerLifetimeScope();
+            builder.RegisterType<OrderItemReadService>().As<IOrderItemReadService>().InstancePerLifetimeScope();
         }
     }
 }
