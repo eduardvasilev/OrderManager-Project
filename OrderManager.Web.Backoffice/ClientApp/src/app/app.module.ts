@@ -6,20 +6,18 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
 import { MaterialModule } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsComponent } from './products/products.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { OrdersComponent } from "./orders/orders.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
     ProductsComponent,
+    OrdersComponent,
     CreateProductComponent
   ],
   imports: [
@@ -30,10 +28,10 @@ import { CreateProductComponent } from './create-product/create-product.componen
     ReactiveFormsModule,
     MaterialModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
+      { path: '', component: OrdersComponent, pathMatch: 'full' },
       { path: 'products', component: ProductsComponent },
       { path: 'create-product', component: CreateProductComponent },
+      { path: 'orders', component: OrdersComponent }
     ])
   ],
   providers: [],

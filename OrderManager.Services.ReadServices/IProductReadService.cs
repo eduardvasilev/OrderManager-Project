@@ -5,6 +5,6 @@ namespace OrderManager.Services.ReadServices
 {
     public interface IProductReadService
     {
-        IQueryable<ProductServiceModel> GetAll();
+        IQueryable<ProductServiceModel> GetAllDetails();
     }
 }

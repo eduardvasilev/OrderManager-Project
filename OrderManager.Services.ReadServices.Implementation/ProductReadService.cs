@@ -14,7 +14,7 @@ namespace OrderManager.Services.ReadServices.Implementation
             _readRepository = readRepository;
         }
         
-        public IQueryable<ProductServiceModel> GetAll()
+        public IQueryable<ProductServiceModel> GetAllDetails()
         {
             return _readRepository.GetAll().Select(product => new ProductServiceModel
             {

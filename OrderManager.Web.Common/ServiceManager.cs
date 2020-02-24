@@ -23,6 +23,7 @@ namespace OrderManager.Web.Common
             services.AddScoped<IOrderItemCommandService, OrderItemCommandService>();
             services.AddScoped<IProductCommandService, ProductCommandService>();
             services.AddScoped<IProductReadService, ProductReadService>();
+            services.AddScoped<IOrderReadService, OrderReadService>();
         }
     }
 }

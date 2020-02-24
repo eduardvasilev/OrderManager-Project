@@ -29,10 +29,15 @@
     <None Remove="ClientApp\src\app\create-product\create-product.component.html" />
     <None Remove="ClientApp\src\app\create-product\create-product.component.ts" />
     <None Remove="ClientApp\src\app\material-module.ts" />
+    <None Remove="ClientApp\src\app\model\order.ts" />
+    <None Remove="ClientApp\src\app\model\orderStatus.ts" />
+    <None Remove="ClientApp\src\app\orders\orders.component.html" />
+    <None Remove="ClientApp\src\app\orders\orders.component.ts" />
     <None Remove="ClientApp\src\app\product.service.ts" />
     <None Remove="ClientApp\src\app\product.ts" />
     <None Remove="ClientApp\src\app\products\products.component.html" />
     <None Remove="ClientApp\src\app\products\products.component.ts" />
+    <None Remove="ClientApp\src\app\services\order.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,14 +52,35 @@
     <TypeScriptCompile Include="ClientApp\src\app\create-product\create-product.component.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\model\orderStatus.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\model\order.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\orders\orders.component.html">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\orders\orders.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\products\products.component.html">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\products\products.component.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="ClientApp\src\app\product.service.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\product.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\order.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\services\product.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\product.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ClientApp\src\app\model\orderStatus.js">
+      <DependentUpon>orderStatus.ts</DependentUpon>
+    </None>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

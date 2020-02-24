@@ -25,7 +25,7 @@ namespace OrderManager.Web.Backoffice.Controllers
 
         public JsonResult Index()
         {
-            List<ProductServiceModel> productServiceModels = _productReadService.GetAll().ToList();
+            List<ProductServiceModel> productServiceModels = _productReadService.GetAllDetails().ToList();
             return Json(productServiceModels);
         }
 

@@ -32,7 +32,7 @@ namespace OrderManager.WebApi.Controllers
 //      [EnableQuery]
         public IEnumerable<ProductServiceModel> Get()
         {
-            return _productReadService.GetAll();
+            return _productReadService.GetAllDetails();
         }
     }
 }

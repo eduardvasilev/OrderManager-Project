@@ -1,0 +1,38 @@
+.order-container {
+  display: flex;
+  flex-direction: column;
+}
+
+  .order-container > * {
+    width: 100%;
+  }
+
+table {
+  width: 100%;
+}
+
+
+tr.order-detail-row {
+  height: 0;
+}
+
+tr.order-element-row:not(.order-expanded-row):hover {
+  background: #777;
+}
+
+tr.order-element-row:not(.order-expanded-row):active {
+  background: #efefef;
+}
+
+.order-element-row td {
+  border-bottom-width: 0;
+}
+
+.order-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.order-element-description {
+  padding: 16px;
+}
