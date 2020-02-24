@@ -28,7 +28,6 @@ tr.order-element-row:not(.order-expanded-row):hover {
 
 .order-element-detail {
   overflow: hidden;
-  display: inline-block;
   width: 75%;
 }
 
