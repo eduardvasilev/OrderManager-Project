@@ -29,7 +29,6 @@ namespace OrderManager.WebApi.Controllers
         }
 
         [HttpGet]
-//      [EnableQuery]
         public IEnumerable<ProductServiceModel> Get()
         {
             return _productReadService.GetAllDetails();

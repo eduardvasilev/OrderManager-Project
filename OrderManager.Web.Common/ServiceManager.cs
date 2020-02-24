@@ -17,13 +17,13 @@ namespace OrderManager.Web.Common
             services.AddDbContext<EfContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             services.AddLogging(builder => builder.AddSerilog());
-            services.AddTransient(typeof(IWriteRepository<>), typeof(WriteRepository<>));
-            services.AddTransient(typeof(IReadRepository<>), typeof(ReadRepository<>));
-            services.AddScoped<IOrderCommandService, OrderCommandService>();
-            services.AddScoped<IOrderItemCommandService, OrderItemCommandService>();
-            services.AddScoped<IProductCommandService, ProductCommandService>();
-            services.AddScoped<IProductReadService, ProductReadService>();
-            services.AddScoped<IOrderReadService, OrderReadService>();
+            //services.AddTransient(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+            //services.AddTransient(typeof(IReadRepository<>), typeof(ReadRepository<>));
+            //services.AddScoped<IOrderCommandService, OrderCommandService>();
+            //services.AddScoped<IOrderItemCommandService, OrderItemCommandService>();
+            //services.AddScoped<IProductCommandService, ProductCommandService>();
+            //services.AddScoped<IProductReadService, ProductReadService>();
+            //services.AddScoped<IOrderReadService, OrderReadService>();
         }
     }
 }

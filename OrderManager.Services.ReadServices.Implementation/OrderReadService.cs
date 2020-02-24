@@ -16,7 +16,9 @@ namespace OrderManager.Services.ReadServices.Implementation
 
         public IQueryable<OrderServiceModel> GetAllDetails()
         {
-            return _orderReadRepository.GetAll().Select(order => new OrderServiceModel
+            return _orderReadRepository.GetAll()
+                .OrderByDescending(order => order.CreationDate)
+                .Select(order => new OrderServiceModel
             {
                 Id = order.Id,
                 AdditionalData = order.AdditionalData,

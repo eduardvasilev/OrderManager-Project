@@ -20,6 +20,7 @@ namespace OrderManager.Services.CommandServices
             _orderItemCommandService = orderItemCommandService;
             _productReadRepository = productReadRepository;
         }
+
         public async Task<OrderCreated> CreateAsync(CreateOrder command)
         {
             Order order = new Order
