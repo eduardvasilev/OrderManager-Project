@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OrderManager.Services.CommandServices;
@@ -12,11 +13,11 @@ namespace OrderManager.WebApi.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductCommandService _productCommandService;
-        private readonly IProductReadService _productReadService;
+        private readonly Lazy<IProductCommandService> _productCommandService;
+        private readonly Lazy<IProductReadService> _productReadService;
 
-        public ProductController(IProductCommandService productCommandService,
-            IProductReadService productReadService)
+        public ProductController(Lazy<IProductCommandService> productCommandService,
+            Lazy<IProductReadService> productReadService)
         {
             _productCommandService = productCommandService;
             _productReadService = productReadService;
@@ -25,13 +26,13 @@ namespace OrderManager.WebApi.Controllers
         [HttpPost("create")]
         public async Task Create([FromBody] CreateProductServiceModel model)
         {
-            await _productCommandService.CreateAsync(model);
+            await _productCommandService.Value.CreateAsync(model);
         }
 
         [HttpGet]
         public IEnumerable<ProductServiceModel> Get()
         {
-            return _productReadService.GetAllDetails();
+            return _productReadService.Value.GetAllDetails();
         }
     }
 }

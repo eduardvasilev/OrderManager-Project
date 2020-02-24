@@ -12,12 +12,12 @@ namespace OrderManager.Web.Backoffice.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly IProductCommandService _productCommandService;
-        private readonly IProductReadService _productReadService;
+        private readonly Lazy<IProductCommandService> _productCommandService;
+        private readonly Lazy<IProductReadService> _productReadService;
 
         public ProductController(
-            IProductCommandService productCommandService,
-            IProductReadService productReadService)
+            Lazy<IProductCommandService> productCommandService,
+            Lazy<IProductReadService> productReadService)
         {
             _productCommandService = productCommandService;
             _productReadService = productReadService;
@@ -25,14 +25,14 @@ namespace OrderManager.Web.Backoffice.Controllers
 
         public JsonResult Index()
         {
-            List<ProductServiceModel> productServiceModels = _productReadService.GetAllDetails().ToList();
+            List<ProductServiceModel> productServiceModels = _productReadService.Value.GetAllDetails().ToList();
             return Json(productServiceModels);
         }
 
         [HttpPost]
         public JsonResult Create([FromBody]ProductServiceModel model)
         {
-            _productCommandService.CreateAsync(new CreateProductServiceModel
+            _productCommandService.Value.CreateAsync(new CreateProductServiceModel
             {
                 Description = model.Description,
                 Name = model.Name,
