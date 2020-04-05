@@ -12,6 +12,7 @@ using OrderManager.Web.Common;
 using OrderManager.WebApi.Infrastructure;
 using System;
 using Autofac;
+using Microsoft.OpenApi.Models;
 
 namespace OrderManager.WebApi
 {
@@ -35,6 +36,11 @@ namespace OrderManager.WebApi
             services.AddControllers();
 
             services.AddScoped<CreateOrderConsumer>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web API", Version = "v1" });
+            });
 
             IBusControl CreateBus(IServiceProvider serviceProvider)
             {
@@ -74,6 +80,13 @@ namespace OrderManager.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Web API V1");
+            });
 
             app.UseAuthorization();
 

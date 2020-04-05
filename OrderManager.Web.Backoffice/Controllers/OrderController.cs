@@ -24,7 +24,7 @@ namespace OrderManager.Web.Backoffice.Controllers
             return Json(orderServiceModels);
         }
 
-        [Route("order/items")]
+        [HttpGet("order/items")]
         public JsonResult GetOrderItems(long orderId)
         {
             OrderItemServiceModel[] orderItemServiceModels = _orderItemReadService.Value.GetAllDetail(orderId).ToArray();
